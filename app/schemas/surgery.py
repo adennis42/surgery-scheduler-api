@@ -23,6 +23,14 @@ class SurgeryCreate(SurgeryBase):
     """Model for creating a new surgery."""
     pass
 
+class SurgeryUpdate(BaseModel):
+    """Model for updating an existing surgery. All fields are optional."""
+    date_time: Optional[datetime.datetime] = None
+    surgery_type: Optional[str] = None
+    surgeon_name: Optional[str] = None
+    patient_name: Optional[str] = None
+    patient_birthdate: Optional[datetime.date] = None
+
 class SurgeryInDB(SurgeryBase):
     """Model for a surgery as it is stored in the database."""
     id: Optional[PyObjectId] = Field(alias="_id", default=None)
